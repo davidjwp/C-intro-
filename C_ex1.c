@@ -3,21 +3,19 @@
 
 int main(int argc, char *argv[])
 {
-    int height = atoi(argv[1]);
-    int width = atoi(argv[2]);
-    if (argc == 3) 
-    {
-        for (int i =1;i < argc; ++i)
+        if (argc == 3) 
         {
-            
-            printf("the perimeter of the rectangle is %d\n",height);
-            printf("the area of the rectangle is %d\n",width);
-            return(0);
+                int width = atoi(argv[2]);
+                int height = atoi(argv[1]);
+                int perimeter = 2*(height + width);
+                int area = (height * width);
+                printf("the perimeter of the rectangle is %d\n",perimeter);
+                printf("the area of the rectangle is %d\n",area);
+                return(0);
         }
-    }
-    else
+        else
         {
-        printf("no data\n");
-        return(0);
+                printf("no data\n");
+                return(0);
         }
 }
