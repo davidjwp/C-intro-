@@ -1,17 +1,22 @@
-# Simplest Makefile
+CC ?= gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic -std=c99
 
-# Compilers and options
-CC=gcc
-CPPFLAGS=
-CFLAGS= -Wall -Wextra -std=c99 -O3
-LDFLAGS=
-LDLIBS=
 
-# Empty default rule
-all:
 
-# Cleaning rule
+SRC = hello.c
+BIN = hello
+OBJ = $(SRC:.c=.o)
+
+all: $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(CFLAGS) -o $(BIN) $(OBJ)
+
+check:
+	./$(BIN)
+
 clean:
-    rm -f *.o *~
+	rm -f $(OBJ) $(BIN)
 
-# END
+.PHONY: clean all ckeck
+
